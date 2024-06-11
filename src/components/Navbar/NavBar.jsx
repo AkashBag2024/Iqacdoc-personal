@@ -8,16 +8,19 @@ import { FaArrowLeft } from "react-icons/fa";
 import { HamburgerContext } from '../../context/HamburgerContext';
 
 function NavBar() {
+  // context 
   const { clickedHamburger, handleHamburger } = useContext(HamburgerContext);
 
   return (
-    <nav className="bg-white p-4 flex flex-col lg:flex-row justify-between items-center m-4 rounded-lg sticky top-[0] z-50 text">
+    
+    <nav className="bg-white left-0  w-full flex flex-col lg:flex-row justify-between items-center m-4 rounded-lg sticky top-[0] z-50 text">
+      {/* hamburgur  */}
       <div className="flex items-center mb-4 lg:mb-0 gap-[3px]">
-        <button className="text-black ml-2 pr-[15px]" onClick={handleHamburger}>
+        <button className="text-black ml-7 pr-[15px]" onClick={handleHamburger}>
           {clickedHamburger ? <FaArrowLeft className='w-10 h-10' /> : <GiHamburgerMenu className='w-10 h-10' />}
         </button>
         <img src={logo} alt="Logo" className="h-10 mr-2 object-cover" />
-        <span className="text-black text-3xl font-medium">Iqacdoc</span>
+        <span className="text-black text-3xl font-bold">Iqacdoc</span>
       </div>
       <img
         src={institutionPic}

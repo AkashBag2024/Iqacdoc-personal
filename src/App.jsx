@@ -1,10 +1,12 @@
 import "./App.css";
-import Layout from "./layout/_layout";
+import Layout from "./layout/Layout";
+import AppRouter from "./navigation/AppRouter";
 
 function App() {
   return (
     <>
-      <Layout />
+    <AppRouter/>
+      <Layout children={"Main"}/>
     </>
   );
 }
