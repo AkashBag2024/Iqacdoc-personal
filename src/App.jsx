@@ -4,10 +4,10 @@ import AppRouter from "./navigation/AppRouter";
 
 function App() {
   return (
-    <>
+    <div>
     <AppRouter/>
       <Layout children={"Main"}/>
-    </>
+    </div>
   );
 }
 

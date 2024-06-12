@@ -6,17 +6,23 @@ import profilePic from "../../assets/images/clg_logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowLeft } from "react-icons/fa";
 import { HamburgerContext } from '../../context/HamburgerContext';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
   // context 
   const { clickedHamburger, handleHamburger } = useContext(HamburgerContext);
+  const navigate = useNavigate()
+  const logoutHandler = () => {
+    localStorage.setItem("login", false);
+    navigate('/login');
+}
 
   return (
     
-    <nav className="bg-white left-0  w-full flex flex-col lg:flex-row justify-between items-center m-4 rounded-lg sticky top-[0] z-50 text">
+    <nav className="bg-white h-14 left-0  w-full flex flex-col lg:flex-row justify-between items-center m-4 rounded-lg fixed top-[0] z-50 text">
       {/* hamburgur  */}
       <div className="flex items-center mb-4 lg:mb-0 gap-[3px]">
-        <button className="text-black ml-7 pr-[15px]" onClick={handleHamburger}>
+        <button className="text-black ml-7 pr-[15px]" onClick={handleHamburger} >
           {clickedHamburger ? <FaArrowLeft className='w-10 h-10' /> : <GiHamburgerMenu className='w-10 h-10' />}
         </button>
         <img src={logo} alt="Logo" className="h-10 mr-2 object-cover" />
@@ -43,7 +49,7 @@ function NavBar() {
             sideOffset={5}
           >
             <div className="flex max-w-full">
-              <button className="text-red-500 text-xl leading-[10px] font-medium mb-1">Logout</button>
+              <button className="text-red-500 text-xl leading-[10px] font-medium mb-1" onClick={logoutHandler}>Logout</button>
             </div>
           </div>
         </div>
