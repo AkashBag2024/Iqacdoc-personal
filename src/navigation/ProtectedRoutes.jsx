@@ -7,9 +7,9 @@ function ProtectedRoutes({ component }) {
 
     useEffect(() => {
         if (!login) {
-            navigate("login");
+            navigate("/login");
         }
-    }, [login, navigate]);
+    }, [navigate]);
 
     return (
         <div>

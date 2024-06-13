@@ -10,15 +10,15 @@ import HomePage from "../pages/HomePage";
 function Layout({ children }) {
   return (
     <Router>
-    <div className='bg-[#F6F6F6]  overflow-hidden '>
-      
+    <div className='bg-[#F6F6F6]  overflow-hidden flex w-auto '>
+    <NavBar />
       <Sidebar/>
       {/* <main>{children}</main> */}
     </div>
    
     <div className=''>
     <Routes>
-            <Route path="/" element={<ProtectedRoutes compoenent={HomePage}/>} />
+    <Route path="/" element={""} />
             <Route path="/about" element={""} />
             <Route path="/services" element={""} />
             <Route path="/contact" element={""} />
@@ -28,6 +28,7 @@ function Layout({ children }) {
           </Routes>
     </div>
     </Router>
+   
   );
 }
 

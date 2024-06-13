@@ -16,7 +16,7 @@ function AppRouter() {
    
     <div className=''>
     <Routes>
-    <Route path="/" element={<ProtectedRoutes compoenent={HomePage}/>} />
+    <Route path="/" element={""} />
             <Route path="/about" element={""} />
             <Route path="/services" element={""} />
             <Route path="/contact" element={""} />

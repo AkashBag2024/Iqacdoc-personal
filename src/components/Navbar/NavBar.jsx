@@ -1,12 +1,15 @@
 // src/components/NavBar.jsx
-import React, { useContext } from 'react';
-import logo from "../../assets/images/clg_logo.png";
+import React, { useContext, useState } from 'react';
+
 import institutionPic from "../../assets/images/ins_pic.png";
 import profilePic from "../../assets/images/clg_logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowLeft } from "react-icons/fa";
 import { HamburgerContext } from '../../context/HamburgerContext';
 import { useNavigate } from 'react-router-dom';
+import { RxHamburgerMenu } from "react-icons/rx";
+import { LuArrowLeft } from "react-icons/lu";
+
 
 function NavBar() {
   // context 
@@ -17,16 +20,23 @@ function NavBar() {
     navigate('/login');
 }
 
+const [currentPosition, setCurrentPosition] = useState("Home");
+
+  const getCurrentDate = () => {
+    const date = new Date();
+    return date.toLocaleDateString();
+  };
+
   return (
-    
-    <nav className="bg-white h-14 left-0  w-full flex flex-col lg:flex-row justify-between items-center m-4 rounded-lg fixed top-[0] z-50 text">
+    <div className='flex flex-col '>
+    <nav className="bg-white h-14 left-0  w-full flex flex-col lg:flex-row justify-between items-center  fixed top-[0] z-0 text p-10 border-2 border-[#e5e7eb]">
       {/* hamburgur  */}
       <div className="flex items-center mb-4 lg:mb-0 gap-[3px]">
-        <button className="text-black ml-7 pr-[15px]" onClick={handleHamburger} >
-          {clickedHamburger ? <FaArrowLeft className='w-10 h-10' /> : <GiHamburgerMenu className='w-10 h-10' />}
+        <button className="text-black  pr-[15px]" onClick={handleHamburger} >
+          {clickedHamburger ? <LuArrowLeft className='w-8 h-8' /> : <RxHamburgerMenu className='w-8 h-8' />}
         </button>
-        <img src={logo} alt="Logo" className="h-10 mr-2 object-cover" />
-        <span className="text-black text-3xl font-bold">Iqacdoc</span>
+       
+        <span className="text-black text-3xl font-semibold">IQACDOC</span>
       </div>
       <img
         src={institutionPic}
@@ -55,6 +65,23 @@ function NavBar() {
         </div>
       </div>
     </nav>
+
+ {/* Horizontal Rule */}
+ {/* <hr className="mt-16 border-gray-300" /> */}
+      
+      {/* New section below navbar */}
+      <div className="w-full ml-72 flex justify-between items-center px-4 py-2 bg-gray-100">
+        <span className="text-lg font-semibold text-black">
+          {currentPosition}
+        </span>
+        <span className="text-lg font-semibold text-black">
+          {getCurrentDate()}
+        </span>
+      </div>
+    
+
+    
+    </div>
   );
 }
 

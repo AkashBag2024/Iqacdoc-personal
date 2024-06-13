@@ -5,7 +5,7 @@ import AppRouter from "./navigation/AppRouter";
 function App() {
   return (
     <div>
-    <AppRouter/>
+    {/* <AppRouter/> */}
       <Layout children={"Main"}/>
     </div>
   );

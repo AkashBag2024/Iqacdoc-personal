@@ -16,12 +16,12 @@ function Login() {
     }
     
 
-    useEffect(() => {
-        let login = localStorage.getItem("login");
-        if (login) {
-            navigate('/');
-        }
-    }, [navigate]);
+    // useEffect(() => {
+    //     let login = localStorage.getItem("login");
+    //     if (login) {
+    //         navigate('/');
+    //     }
+    // }, [navigate]);
   
     const handleSubmit = async (e) => {
       e.preventDefault();
